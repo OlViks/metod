@@ -22,16 +22,11 @@ public class Method {
                     System.out.println("Установите версию приложения для Android по ссылке.");
                 }
         }
-    public static void dayDelivery(int deliveryDistance) {
-        int deliveryDay = 1;
-        if (deliveryDistance >= 0 && deliveryDistance < 20) {
-            System.out.println("Потребуется дней: " + deliveryDay);
-        } else if (deliveryDistance >= 20 && deliveryDistance < 60) {
-            System.out.println("Потребуется дней: " + (deliveryDay + 1));
-        } else if (deliveryDistance >= 60 && deliveryDistance <= 100) {
-            System.out.println("Потребуется дней: " + (deliveryDay + 2));
+    public static int dayDelivery(int deliveryDistance) {
+        if (deliveryDistance <= 20){
+        return 1;
         } else {
-            System.out.println("Расcтояние слишком большое");
+        return (int) Math.round((double) deliveryDistance / 40) + 1;
         }
     }
 
@@ -51,8 +46,8 @@ public class Method {
         osMaster(clientOS,yearSmart);
 
         //Задание 3
-        int deliveryDistance = 20;
-        dayDelivery(deliveryDistance);
+        int deliveryDistance = dayDelivery(20);
+        System.out.println("Потребуется дней " + deliveryDistance);
 
         }
 }
